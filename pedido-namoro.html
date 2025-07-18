@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pedido de Namoro 💖</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #ffe6f0;
+        margin-top: 100px;
+      }
+
+      h1 {
+        color: #d63384;
+      }
+
+      .buttons {
+        margin-top: 30px;
+      }
+
+      button {
+        padding: 12px 25px;
+        margin: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      #yes_button {
+        background-color: #28a745;
+        color: white;
+      }
+
+      #no_button {
+        background-color: #dc3545;
+        color: white;
+        position: relative;
+      }
+
+      #contract {
+        display: none;
+        position: fixed;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 70%;
+        background: white;
+        border: 2px solid #d63384;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+        z-index: 1000;
+      }
+
+      #contract h2 {
+        color: #d63384;
+      }
+
+      #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Quer namorar comigo? 🥰</h1>
+
+    <div class="buttons">
+      <button id="yes_button">Sim 💘</button>
+      <button id="no_button">Não 😅</button>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="contract">
+      <h2>Contrato de Namoro 💑</h2>
+      <p>
+        Ao aceitar este contrato, você concorda em ser minha pessoa favorita,
+        trocar memes diariamente, dividir o último pedaço de pizza, e me
+        aguentar nos dias ruins. 🤭
+      </p>
+      <p>
+        Também nos comprometemos a assistir séries juntos, criar memórias
+        incríveis, rir de piadas ruins e nunca desistir um do outro. 💕
+      </p>
+      <p>Assinado virtualmente com amor. ❤️</p>
+      <br />
+      <button onclick="closeContract()">Fechar</button>
+    </div>
+
+    <script>
+      const noButton = document.getElementById("no_button");
+      const yesButton = document.getElementById("yes_button");
+      const contract = document.getElementById("contract");
+      const overlay = document.getElementById("overlay");
+
+      noButton.addEventListener("mouseover", () => {
+        const x = Math.floor(Math.random() * 80);
+        const y = Math.floor(Math.random() * 80);
+        noButton.style.position = "absolute";
+        noButton.style.left = `${x}%`;
+        noButton.style.top = `${y}%`;
+      });
+
+      yesButton.addEventListener("click", () => {
+        overlay.style.display = "block";
+        contract.style.display = "block";
+      });
+
+      function closeContract() {
+        contract.style.display = "none";
+        overlay.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
